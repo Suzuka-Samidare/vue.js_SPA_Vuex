@@ -1,8 +1,15 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <el-button type="primary" value="" @click="doUpdate">getData</el-button>
-    <!-- <el-button type="primary" value="">getData</el-button> -->
+    <h1>{{ title }}</h1>
+    <el-input
+      class="el-input"
+      placeholder="Type something"
+      prefix-icon="el-icon-search"
+      v-model="searchIdol">
+    </el-input>
+    <!-- <input type="text" v-model="word"> -->
+    <el-button type="primary" @click="doUpdate(searchIdol)">getData</el-button>
+
     <p>name     : {{ responce.family_name }}{{ responce.first_name }}</p>
     <p>name     : {{ responce.family_name_ruby }}{{ responce.first_name_ruby }}</p>
     <p>birthday : {{ responce.birth_month }} / {{ responce.birth_day }}</p>
@@ -16,7 +23,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: '沖縄出身のアイドルといえば？'
+      title: 'IDOLM@STER CHARACTER PROFILE',
+      searchIdol: ''
     }
   },
   computed: {
@@ -25,8 +33,8 @@ export default {
     }
   },
   methods: {
-    doUpdate() {
-      this.$store.dispatch('doUpdate')
+    doUpdate(word) {
+      this.$store.dispatch('doUpdate', word)
     }
   }
 }
@@ -36,6 +44,10 @@ export default {
 <style scoped>
 .hello {
   background-color: aqua;
+}
+.el-input {
+  display: inline-block;
+  width: 200px;
 }
 h1, h2 {
   font-weight: normal;

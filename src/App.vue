@@ -6,12 +6,6 @@
 
     <router-view />
 
-    <p>name     : {{ responce.family_name }}{{ responce.first_name }}</p>
-    <p>name     : {{ responce.family_name_ruby }}{{ responce.first_name_ruby }}</p>
-    <p>birthday : {{ responce.birth_month }} / {{ responce.birth_day }}</p>
-    <p>CV       : {{ responce.cv }}</p>
-    <p>arrival  : {{ responce.origin_media }}</p>
-
   </div>
 </template>
 

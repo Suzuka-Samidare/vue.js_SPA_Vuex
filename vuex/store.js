@@ -10,10 +10,11 @@ const store = new Vuex.Store({
       const payload = {
         data: '',
       };
-      await axios.get('http://api.imas-db.jp/character/list?type=1')
+      // アイマスデータベースAPI
+      await axios.get('http://api.imas-db.jp/character/lookup?name=' + searchWord)
         .then((res) => {
-          console.log(res.data.character_list[3]);
-          payload.data = res.data.character_list[3]
+          console.log(res.data.character_list[0]);
+          payload.data = res.data.character_list[0]
         });
       commit('setResponce',payload);
     }
