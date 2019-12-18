@@ -37,11 +37,15 @@ module.exports = {
   },
 
   build: {
+    env: require('./prod.env'), // github-pages
+
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(__dirname, '../docs/index.html'), // github-pages
+    // index: path.resolve(__dirname, '../dist/index.html'), // default
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    // assetsRoot: path.resolve(__dirname, '../dist'), // default
+    assetsRoot: path.resolve(__dirname, '../docs'), // default
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
 

@@ -15,11 +15,11 @@ export default {
   data () {
     return {
       greeting: 'HOGEhogeHUGAhuga'
-    }
+    } 
   },
   computed: {
-    responce() {
-      return this.$store.getters.resultResponce
+    response() {
+      return this.$store.getters.resultResponse
     }
   },
 }

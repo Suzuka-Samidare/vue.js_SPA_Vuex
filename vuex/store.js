@@ -16,20 +16,20 @@ const store = new Vuex.Store({
           console.log(res.data.character_list[0]);
           payload.data = res.data.character_list[0]
         });
-      commit('setResponce',payload);
+      commit('setResponse',payload);
     }
   },
   mutations: {
-    setResponce(state, payload) {
-      state.responce = payload.data
+    setResponse(state, payload) {
+      state.response = payload.data
     }
   },
   state: {
-    responce: ''
+    response: []
   },
   getters: {
-    resultResponce(state) {
-      return state.responce
+    resultResponse(state) {
+      return state.response
     },
   },
 })

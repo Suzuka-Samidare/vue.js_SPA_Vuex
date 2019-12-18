@@ -3,9 +3,13 @@
     <div>
       <p v-text="ip"></p>
       <div>
-        <input @click="getIp" type="button" value="get IP">
+        <el-button @click="getIp">get IP</el-button>
       </div>
-    </div>
+      <div>
+        <p>{{ humanData }}</p>
+      </div>
+      <p v-bind:class="isActive ? 'active' : 'normal'">yeah!!!!!</p>
+    </div>  
   </div>
 </template>
 
@@ -14,15 +18,32 @@
     name: 'SearchIp',
     data() {
       return {
-        ip: 'IP is displayed here.'
+        ip: 'IP is displayed here.',
+        humanData: '',
+        isActive: true,
+        otherClass: 'Extra'
       }
+    },
+    created() {
+      this.$axios.get('http://localhost:3000/users')
+        .then((res) => {
+          this.humanData = res.data[0]
+        })
+        .catch((err) => {
+          this.humanData = 'failed'
+        })
+    },
+    computed: {
+
+      // return this.$store.getters.resultResponse
     },
     methods: {
       getIp() {
         this.ip = 'get your IP now...';
-        this.$axios.get('https://httpbin.org/get')
+        this.$axios.get('http://localhost:3000/users')
           .then((res) => {
-            this.ip = res.data.origin;
+            console.log(res);
+            this.ip = res.data[2];
           })
           .catch((err) => {
             this.ip = 'failed get your IP';
