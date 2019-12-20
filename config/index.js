@@ -37,17 +37,18 @@ module.exports = {
   },
 
   build: {
-    env: require('./prod.env'), // github-pages
+    // env: require('./prod.env'), // github-pages docs folder
 
     // Template for index.html
-    index: path.resolve(__dirname, '../docs/index.html'), // github-pages
-    // index: path.resolve(__dirname, '../dist/index.html'), // default
+    // index: path.resolve(__dirname, '../docs/index.html'), // github-pages docs folder
+    index: path.resolve(__dirname, '../dist/index.html'), // default
 
     // Paths
-    // assetsRoot: path.resolve(__dirname, '../dist'), // default
-    assetsRoot: path.resolve(__dirname, '../docs'), // default
+    assetsRoot: path.resolve(__dirname, '../dist'), // default
+    // assetsRoot: path.resolve(__dirname, '../docs'), // github-pages docs folder
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    // assetsPublicPath: '/',
+    assetsPublicPath: '',
 
     /**
      * Source Maps
